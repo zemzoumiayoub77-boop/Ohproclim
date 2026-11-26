@@ -10,6 +10,7 @@
 <meta name="author" content="O&H Pro Clim"/>
 <link rel="canonical" href="https://ohproclim.com/"/>
 <link rel="icon" type="image/jpeg" href="logo.jpeg"/>
+<link rel="stylesheet" href="enhance.css"/>
 <link rel="apple-touch-icon" href="logo.jpeg"/>
 
 <meta property="og:type" content="website"/>
@@ -58,7 +59,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -418,7 +419,7 @@ section{padding:100px 5%}
 .avis-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .avis-form .full{grid-column:span 2}
 .avis-form label{display:block;font-size:12px;color:var(--text);margin-bottom:6px;font-weight:500}
-.avis-form input,.avis-form textarea,.avis-form select{width:100%;background:var(--dark3);border:1px solid var(--border);border-radius:10px;padding:13px 15px;color:#fff;font-family:var(--font-body);font-size:14px;transition:border-color 0.2s}
+.avis-form input,.avis-form textarea,.avis-form select{width:100%;background:var(--dark3);border:1px solid var(--border);border-radius:10px;padding:13px 15px;color:var(--text);font-family:var(--font-body);font-size:14px;transition:border-color 0.2s}
 .avis-form input:focus,.avis-form textarea:focus,.avis-form select:focus{border-color:var(--ice);outline:none}
 .avis-form textarea{resize:vertical;min-height:100px}
 .rate-pick{display:flex;gap:6px;font-size:26px;cursor:pointer}
@@ -801,15 +802,15 @@ nav{background:rgba(6,13,26,0.96);position:sticky;top:0;z-index:1110}
 
 <div class="topbar">
   <div class="topbar-contacts">
-    <a href="tel:+212649811813" class="topbar-item" aria-label="Appeler O&H Pro Clim"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>+212 649-811813</a>
-    <a href="tel:+212660027984" class="topbar-item" aria-label="Appeler O&H Pro Clim"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>+212 660-027984</a>
-    <a href="mailto:ohproclim93@gmail.com" class="topbar-item" aria-label="Envoyer un email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>ohproclim93@gmail.com</a>
-    <span class="topbar-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>Intervention nationale – Maroc</span>
+    <a data-link="phone1" href="tel:+212649811813" class="topbar-item" aria-label="Appeler O&H Pro Clim"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>+212 649-811813</a>
+    <a data-link="phone2" href="tel:+212660027984" class="topbar-item" aria-label="Appeler O&H Pro Clim"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>+212 660-027984</a>
+    <a data-link="email" href="mailto:ohproclim93@gmail.com" class="topbar-item" aria-label="Envoyer un email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>ohproclim93@gmail.com</a>
+    <span class="topbar-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg><span data-edit="topbar_zone">Intervention nationale – Maroc</span></span>
   </div>
   <div class="topbar-right">
     <a href="https://wa.me/212649811813" class="soc-btn whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.44 2.13 11.9c0 2.05.6 3.96 1.63 5.56L2 22l4.64-1.22c1.56.85 3.34 1.3 5.4 1.3 5.46 0 9.9-4.45 9.9-9.9S17.5 2 12.04 2zm0 17.86c-1.58 0-3.11-.42-4.44-1.22l-.32-.18-2.75.72.74-2.68-.2-.32A8.14 8.14 0 0 1 3.77 12c0-4.5 3.66-8.16 8.16-8.16 4.5 0 8.16 3.66 8.16 8.16 0 4.5-3.66 8.16-8.16 8.16zm4.54-6.14c-.25-.12-1.47-.72-1.7-.8-.23-.08-.39-.12-.56.12-.17.24-.65.8-.8.96-.15.16-.3.18-.55.06-.25-.12-1.05-.39-2-1.25-.74-.66-1.24-1.47-1.39-1.72-.15-.25-.02-.38.11-.5.11-.11.24-.29.36-.44.12-.15.16-.25.24-.41.08-.16.04-.3-.02-.42-.06-.12-.56-1.34-.77-1.84-.2-.49-.41-.42-.56-.42-.15 0-.32-.01-.49-.01-.17 0-.45.06-.69.3-.24.24-.91.89-.91 2.16 0 1.27.93 2.5 1.06 2.67.13.17 1.82 2.78 4.42 3.89.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.08 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.15-.47-.27z"/></svg></a>
-    <a href="https://www.instagram.com/oh.pro.clim" class="soc-btn instagram" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5.2A4.8 4.8 0 1 0 16.8 12 4.8 4.8 0 0 0 12 7.2zm6.2-1.7a1.3 1.3 0 1 0 1.3 1.3 1.3 1.3 0 0 0-1.3-1.3z"/></svg></a>
-    <a href="https://www.facebook.com/share/1Ji1ip8Cxb/" class="soc-btn facebook" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V4.8c0-.9.3-1.6 1.6-1.6h1.7V.2C16.9.1 15.8 0 14.7 0c-2.5 0-4.2 1.5-4.2 4.3V10.8H7.8V14h2.7v8z"/></svg></a>
+    <a data-link="instagram" href="https://www.instagram.com/oh.pro.clim" class="soc-btn instagram" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5.2A4.8 4.8 0 1 0 16.8 12 4.8 4.8 0 0 0 12 7.2zm6.2-1.7a1.3 1.3 0 1 0 1.3 1.3 1.3 1.3 0 0 0-1.3-1.3z"/></svg></a>
+    <a data-link="facebook" href="https://www.facebook.com/share/1Ji1ip8Cxb/" class="soc-btn facebook" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V4.8c0-.9.3-1.6 1.6-1.6h1.7V.2C16.9.1 15.8 0 14.7 0c-2.5 0-4.2 1.5-4.2 4.3V10.8H7.8V14h2.7v8z"/></svg></a>
   </div>
 </div>
 
@@ -856,9 +857,9 @@ nav{background:rgba(6,13,26,0.96);position:sticky;top:0;z-index:1110}
   <div class="particles-wrap" id="pts" aria-hidden="true"></div>
   <div class="hero-inner">
     <div>
-      <div class="hero-eyebrow"><div class="eyebrow-dot"></div>Expert climatisation · Maroc · Depuis 2011</div>
-      <h1 class="htitle">Votre confort<span class="l2">thermique</span><span class="l3">notre métier</span></h1>
-      <p class="hero-desc">Installation, maintenance et dépannage de tous types de systèmes de climatisation, réfrigération et ventilation pour particuliers et professionnels, partout au Maroc.</p>
+      <div class="hero-eyebrow"><div class="eyebrow-dot"></div><span data-edit="hero_eyebrow">Expert climatisation · Maroc · Depuis 2011</span></div>
+      <h1 class="htitle"><span data-edit="hero_l1">Votre confort</span><span class="l2" data-edit="hero_l2">thermique</span><span class="l3" data-edit="hero_l3">notre métier</span></h1>
+      <p class="hero-desc" data-edit="hero_desc">Installation, maintenance et dépannage de tous types de systèmes de climatisation, réfrigération et ventilation pour particuliers et professionnels, partout au Maroc.</p>
       <div class="hero-btns">
         <a href="https://wa.me/212649811813?text=Bonjour%20O%26H%20Pro%20Clim,%20je%20souhaite%20un%20devis%20gratuit." class="btn-wa" target="_blank" rel="noopener" aria-label="Demander un devis gratuit sur WhatsApp">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.44 2.13 11.9c0 2.05.6 3.96 1.63 5.56L2 22l4.64-1.22c1.56.85 3.34 1.3 5.4 1.3 5.46 0 9.9-4.45 9.9-9.9S17.5 2 12.04 2zm0 17.86c-1.58 0-3.11-.42-4.44-1.22l-.32-.18-2.75.72.74-2.68-.2-.32A8.14 8.14 0 0 1 3.77 12c0-4.5 3.66-8.16 8.16-8.16 4.5 0 8.16 3.66 8.16 8.16 0 4.5-3.66 8.16-8.16 8.16zm4.54-6.14c-.25-.12-1.47-.72-1.7-.8-.23-.08-.39-.12-.56.12-.17.24-.65.8-.8.96-.15.16-.3.18-.55.06-.25-.12-1.05-.39-2-1.25-.74-.66-1.24-1.47-1.39-1.72-.15-.25-.02-.38.11-.5.11-.11.24-.29.36-.44.12-.15.16-.25.24-.41.08-.16.04-.3-.02-.42-.06-.12-.56-1.34-.77-1.84-.2-.49-.41-.42-.56-.42-.15 0-.32-.01-.49-.01-.17 0-.45.06-.69.3-.24.24-.91.89-.91 2.16 0 1.27.93 2.5 1.06 2.67.13.17 1.82 2.78 4.42 3.89.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.08 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.15-.47-.27z"/></svg>
@@ -867,9 +868,9 @@ nav{background:rgba(6,13,26,0.96);position:sticky;top:0;z-index:1110}
         <a href="#services" class="btn-ghost">Découvrir nos services ↓</a>
       </div>
       <div class="hero-stats" id="stats">
-        <div><div class="hs-num"><span class="count" data-target="150">0</span><em>+</em></div><div class="hs-lab">Clients satisfaits</div></div>
-        <div><div class="hs-num"><span class="count" data-target="15">0</span></div><div class="hs-lab">Ans d'expérience</div></div>
-        <div><div class="hs-num"><span class="count" data-target="4">0</span><em>h</em></div><div class="hs-lab">Délai d'urgence</div></div>
+        <div><div class="hs-num"><span class="count" data-target="150" data-edit-target="stat1">0</span><em>+</em></div><div class="hs-lab" data-edit="stat1_label">Clients satisfaits</div></div>
+        <div><div class="hs-num"><span class="count" data-target="15" data-edit-target="stat2">0</span></div><div class="hs-lab" data-edit="stat2_label">Ans d'expérience</div></div>
+        <div><div class="hs-num"><span class="count" data-target="4" data-edit-target="stat3">0</span><em>h</em></div><div class="hs-lab" data-edit="stat3_label">Délai d'urgence</div></div>
         <div><div class="hs-num">7<em>j/7</em></div><div class="hs-lab">Disponibilité</div></div>
       </div>
     </div>
@@ -900,7 +901,7 @@ nav{background:rgba(6,13,26,0.96);position:sticky;top:0;z-index:1110}
 
 <section id="services" data-wa="Bonjour O%26H Pro Clim, j'ai une question concernant vos services de climatisation.">
   <div class="shead reveal"><div class="stag">Ce que nous faisons</div><h2 class="stitle">Nos <span>Services</span></h2><div class="ssub">Toutes vos installations climatiques confiées à des techniciens expérimentés et certifiés.</div></div>
-  <div class="srv-grid">
+  <div class="srv-grid" id="srvGrid">
     <div class="srv-card reveal"><span class="srv-n">01</span><div class="srv-ico">❄️</div><h3 class="srv-ttl">Installation & Pose</h3><div class="srv-dsc">Pose complète de tous types de systèmes : split murale, split gainable, split cassette, multi split. Étude technique offerte.</div><ul class="srv-list"><li>Mono & multi-split</li><li>Gainable & cassette</li><li>Mise en service incluse</li><li>Conseil personnalisé</li></ul><a href="https://wa.me/212649811813?text=Bonjour,%20je%20veux%20un%20devis%20installation." class="srv-wa" target="_blank" rel="noopener" aria-label="Demander un devis installation">💬 Demander un devis →</a></div>
     <div class="srv-card reveal"><span class="srv-n">02</span><div class="srv-ico">🔧</div><h3 class="srv-ttl">Maintenance & Entretien</h3><div class="srv-dsc">Contrats d'entretien annuels pour garantir performance et longévité. Rapport détaillé fourni.</div><ul class="srv-list"><li>Nettoyage filtres & échangeurs</li><li>Vérification circuit frigorifique</li><li>Contrôle électrique complet</li><li>Contrats annuels disponibles</li></ul><a href="https://wa.me/212649811813?text=Bonjour,%20je%20veux%20un%20contrat%20maintenance." class="srv-wa" target="_blank" rel="noopener" aria-label="Prendre contact pour la maintenance">💬 Prendre contact →</a></div>
     <div class="srv-card reveal"><span class="srv-n">03</span><div class="srv-ico">🚨</div><h3 class="srv-ttl">Dépannage Urgent</h3><div class="srv-dsc">Intervention 7 jours sur 7. Réponse garantie sous 4 heures pour toute panne ou dysfonctionnement.</div><ul class="srv-list"><li>Disponible 7j/7</li><li>Réponse sous 4h garantie</li><li>Diagnostic précis & rapide</li><li>Devis avant intervention</li></ul><a href="https://wa.me/212649811813?text=URGENT%20Panne%20climatisation,%20j'ai%20besoin%20d'un%20d%C3%A9pannage." class="srv-wa" target="_blank" rel="noopener" aria-label="Demander un dépannage urgent">💬 Urgence maintenant →</a></div>
@@ -966,7 +967,7 @@ nav{background:rgba(6,13,26,0.96);position:sticky;top:0;z-index:1110}
     <div class="rr">
       <div class="stag">Qui sommes-nous</div>
       <h2 class="stitle">O&H <span>Pro Clim</span></h2>
-      <p class="ssub">Depuis 2011, nous accompagnons des milliers de clients marocains dans leurs projets de climatisation, réfrigération et ventilation. Notre équipe de techniciens certifiés intervient rapidement, partout au Maroc.</p>
+      <p class="ssub" data-edit="about_text">Depuis 2011, nous accompagnons des milliers de clients marocains dans leurs projets de climatisation, réfrigération et ventilation. Notre équipe de techniciens certifiés intervient rapidement, partout au Maroc.</p>
       <div class="av-list">
         <div class="av-item"><div class="av-ico">⚡</div><div><div class="av-ttl">Réactivité garantie</div><div class="av-dsc">Intervention sous 4h pour les urgences, 7 jours sur 7.</div></div></div>
         <div class="av-item"><div class="av-ico">🎓</div><div><div class="av-ttl">Techniciens certifiés</div><div class="av-dsc">Formés sur toutes les grandes marques et technologies de climatisation.</div></div></div>
@@ -992,6 +993,7 @@ nav{background:rgba(6,13,26,0.96);position:sticky;top:0;z-index:1110}
     <div><div class="stag">Portfolio</div><h2 class="stitle">Nos <span>Réalisations</span></h2></div>
     <a href="https://wa.me/212649811813?text=Bonjour,%20je%20veux%20un%20projet%20similaire." class="gallery-wa" target="_blank" rel="noopener" aria-label="Discuter de votre projet sur WhatsApp">💬 Discuter de votre projet</a>
   </div>
+  <div class="gal-filters" id="galFilters" aria-label="Filtrer par ville"></div>
   <div class="gal-grid" id="gallery-container"></div>
 </section>
 
@@ -1043,7 +1045,7 @@ nav{background:rgba(6,13,26,0.96);position:sticky;top:0;z-index:1110}
       <div class="stag">Présence nationale</div>
       <h2 class="stitle">Zones d'<span>intervention</span></h2>
       <p class="ssub" style="margin-bottom:24px">Nous intervenons dans toutes les grandes villes du Maroc. Contactez-nous pour votre région.</p>
-      <div class="zones-grid">
+      <div class="zones-grid" id="zonesGrid">
         <div class="zone-pill"><div class="zdot"></div>Casablanca</div>
         <div class="zone-pill"><div class="zdot"></div>Rabat</div>
         <div class="zone-pill"><div class="zdot"></div>Marrakech</div>
@@ -1070,7 +1072,7 @@ nav{background:rgba(6,13,26,0.96);position:sticky;top:0;z-index:1110}
 
 <section id="faq" data-wa="Bonjour O%26H Pro Clim, j'ai une question.">
   <div class="shead center reveal"><div class="stag center">Questions fréquentes</div><h2 class="stitle" style="text-align:center">Vos <span>questions</span></h2><div class="ssub" style="text-align:center;margin:0 auto">Les réponses aux questions les plus courantes sur la climatisation.</div></div>
-  <div class="faq-list">
+  <div class="faq-list" id="faqList">
     <div class="faq-item"><button class="faq-q" aria-expanded="false">Quel type de climatisation choisir pour mon logement ?<span class="faq-ico" aria-hidden="true">+</span></button><div class="faq-a"><p>Cela dépend de la surface, du nombre de pièces et de votre budget. Pour une seule pièce, un mono-split suffit ; pour plusieurs pièces, un multi-split ou un gainable est idéal. Nous réalisons une étude gratuite pour vous conseiller la solution la plus adaptée.</p></div></div>
     <div class="faq-item"><button class="faq-q" aria-expanded="false">Combien coûte une installation de climatisation ?<span class="faq-ico" aria-hidden="true">+</span></button><div class="faq-a"><p>Le prix varie selon le type d'appareil, la puissance et la complexité de la pose. Nous établissons un devis 100% gratuit et détaillé après étude de votre projet, sans aucun frais caché.</p></div></div>
     <div class="faq-item"><button class="faq-q" aria-expanded="false">À quelle fréquence entretenir ma climatisation ?<span class="faq-ico" aria-hidden="true">+</span></button><div class="faq-a"><p>Un entretien au moins une fois par an est recommandé pour garantir performance, qualité de l'air et longévité de votre système. Nous proposons des contrats d'entretien annuels adaptés à vos besoins.</p></div></div>
@@ -1086,12 +1088,13 @@ nav{background:rgba(6,13,26,0.96);position:sticky;top:0;z-index:1110}
 
   <div class="avis-box reveal">
     <h3>Laissez votre avis</h3>
-    <p class="hint">Vous êtes un client O&H Pro Clim ? Partagez votre expérience — votre avis sera ajouté ci-dessus.</p>
+    <p class="hint">Vous êtes un client O&H Pro Clim ? Partagez votre expérience — votre avis sera publié ci-dessus et visible par tous les visiteurs.</p>
     <form class="avis-form" id="avis-form">
       <div><label for="av-nom">Nom</label><input type="text" id="av-nom" name="nom" required maxlength="40" placeholder="Votre nom"/></div>
       <div><label for="av-ville">Ville</label><input type="text" id="av-ville" name="ville" required maxlength="40" placeholder="Votre ville"/></div>
       <div class="full"><label>Note</label><div class="rate-pick" id="ratePick" role="radiogroup" aria-label="Note sur 5"><span data-v="1" role="radio" aria-checked="false" tabindex="0">★</span><span data-v="2" role="radio" aria-checked="false">★</span><span data-v="3" role="radio" aria-checked="false">★</span><span data-v="4" role="radio" aria-checked="false">★</span><span data-v="5" role="radio" aria-checked="false">★</span></div></div>
       <div class="full"><label for="av-texte">Votre avis</label><textarea id="av-texte" name="texte" required maxlength="400" placeholder="Décrivez votre expérience avec O&H Pro Clim..."></textarea></div>
+      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0"/>
       <button type="submit" class="avis-submit">Publier mon avis</button>
       <div class="avis-ok" id="avisOk">✅ Merci ! Votre avis a bien été ajouté.</div>
     </form>
@@ -1103,13 +1106,13 @@ nav{background:rgba(6,13,26,0.96);position:sticky;top:0;z-index:1110}
   <div class="cta-inner reveal">
     <div class="stag center" style="justify-content:center;margin-bottom:14px"><span style="width:0"></span>Prêt à démarrer ?</div>
     <h2 class="cta-ttl">Contactez-nous<span>sur WhatsApp</span></h2>
-    <p class="cta-sub">Devis gratuit en moins de 24h. Nos techniciens interviennent rapidement partout au Maroc. Un message suffit.</p>
+    <p class="cta-sub" data-edit="cta_sub">Devis gratuit en moins de 24h. Nos techniciens interviennent rapidement partout au Maroc. Un message suffit.</p>
     <div class="cta-btns">
       <a href="https://wa.me/212649811813?text=Bonjour%20O%26H%20Pro%20Clim,%20je%20souhaite%20un%20devis%20gratuit." class="btn-wa-lg" target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.44 2.13 11.9c0 2.05.6 3.96 1.63 5.56L2 22l4.64-1.22c1.56.85 3.34 1.3 5.4 1.3 5.46 0 9.9-4.45 9.9-9.9S17.5 2 12.04 2zm0 17.86c-1.58 0-3.11-.42-4.44-1.22l-.32-.18-2.75.72.74-2.68-.2-.32A8.14 8.14 0 0 1 3.77 12c0-4.5 3.66-8.16 8.16-8.16 4.5 0 8.16 3.66 8.16 8.16 0 4.5-3.66 8.16-8.16 8.16zm4.54-6.14c-.25-.12-1.47-.72-1.7-.8-.23-.08-.39-.12-.56.12-.17.24-.65.8-.8.96-.15.16-.3.18-.55.06-.25-.12-1.05-.39-2-1.25-.74-.66-1.24-1.47-1.39-1.72-.15-.25-.02-.38.11-.5.11-.11.24-.29.36-.44.12-.15.16-.25.24-.41.08-.16.04-.3-.02-.42-.06-.12-.56-1.34-.77-1.84-.2-.49-.41-.42-.56-.42-.15 0-.32-.01-.49-.01-.17 0-.45.06-.69.3-.24.24-.91.89-.91 2.16 0 1.27.93 2.5 1.06 2.67.13.17 1.82 2.78 4.42 3.89.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.10.5-.08 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.15-.47-.27z"/></svg>
         Discuter sur WhatsApp
       </a>
-      <a href="tel:+212660027984" class="btn-call" aria-label="Appeler maintenant">📞 Appeler maintenant</a>
+      <a data-link="phone2" href="tel:+212660027984" class="btn-call" aria-label="Appeler maintenant">📞 Appeler maintenant</a>
     </div>
   </div>
 </section>
@@ -1118,15 +1121,15 @@ nav{background:rgba(6,13,26,0.96);position:sticky;top:0;z-index:1110}
   <div class="footer-top">
     <div>
       <div class="f-brand">O&H <span>Pro Clim</span></div>
-      <p class="f-desc">Expert en climatisation, réfrigération et ventilation au Maroc depuis 2011. Installation, maintenance et dépannage partout au Maroc.</p>
+      <p class="f-desc" data-edit="footer_desc">Expert en climatisation, réfrigération et ventilation au Maroc depuis 2011. Installation, maintenance et dépannage partout au Maroc.</p>
       <div class="f-socs">
         <a href="https://wa.me/212649811813" class="f-soc whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.44 2.13 11.9c0 2.05.6 3.96 1.63 5.56L2 22l4.64-1.22c1.56.85 3.34 1.3 5.4 1.3 5.46 0 9.9-4.45 9.9-9.9S17.5 2 12.04 2zm0 17.86c-1.58 0-3.11-.42-4.44-1.22l-.32-.18-2.75.72.74-2.68-.2-.32A8.14 8.14 0 0 1 3.77 12c0-4.5 3.66-8.16 8.16-8.16 4.5 0 8.16 3.66 8.16 8.16 0 4.5-3.66 8.16-8.16 8.16zm4.54-6.14c-.25-.12-1.47-.72-1.7-.8-.23-.08-.39-.12-.56.12-.17.24-.65.8-.8.96-.15.16-.3.18-.55.06-.25-.12-1.05-.39-2-1.25-.74-.66-1.24-1.47-1.39-1.72-.15-.25-.02-.38.11-.5.11-.11.24-.29.36-.44.12-.15.16-.25.24-.41.08-.16.04-.3-.02-.42-.06-.12-.56-1.34-.77-1.84-.2-.49-.41-.42-.56-.42-.15 0-.32-.01-.49-.01-.17 0-.45.06-.69.3-.24.24-.91.89-.91 2.16 0 1.27.93 2.5 1.06 2.67.13.17 1.82 2.78 4.42 3.89.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.08 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.15-.47-.27z"/></svg></a>
-        <a href="https://www.instagram.com/oh.pro.clim" class="f-soc instagram" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5.2A4.8 4.8 0 1 0 16.8 12 4.8 4.8 0 0 0 12 7.2zm6.2-1.7a1.3 1.3 0 1 0 1.3 1.3 1.3 1.3 0 0 0-1.3-1.3z"/></svg></a>
-        <a href="https://www.facebook.com/share/1Ji1ip8Cxb/" class="f-soc facebook" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V4.8c0-.9.3-1.6 1.6-1.6h1.7V.2C16.9.1 15.8 0 14.7 0c-2.5 0-4.2 1.5-4.2 4.3V10.8H7.8V14h2.7v8z"/></svg></a>
+        <a data-link="instagram" href="https://www.instagram.com/oh.pro.clim" class="f-soc instagram" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5.2A4.8 4.8 0 1 0 16.8 12 4.8 4.8 0 0 0 12 7.2zm6.2-1.7a1.3 1.3 0 1 0 1.3 1.3 1.3 1.3 0 0 0-1.3-1.3z"/></svg></a>
+        <a data-link="facebook" href="https://www.facebook.com/share/1Ji1ip8Cxb/" class="f-soc facebook" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V4.8c0-.9.3-1.6 1.6-1.6h1.7V.2C16.9.1 15.8 0 14.7 0c-2.5 0-4.2 1.5-4.2 4.3V10.8H7.8V14h2.7v8z"/></svg></a>
       </div>
     </div>
     <div class="f-col"><h4>Services</h4><ul class="f-links"><li><a href="#services">Installation climatisation</a></li><li><a href="#services">Maintenance & entretien</a></li><li><a href="#services">Dépannage d'urgence</a></li><li><a href="#services">Pompe à chaleur</a></li><li><a href="#services">Solutions professionnelles</a></li><li><a href="#services">Bilan énergétique</a></li></ul></div>
-    <div class="f-col"><h4>Contact</h4><ul class="f-links"><li><a href="tel:+212649811813">📞 +212 649-811813</a></li><li><a href="tel:+212660027984">📞 +212 660-027984</a></li><li><a href="mailto:ohproclim93@gmail.com">✉️ ohproclim93@gmail.com</a></li><li><a href="https://wa.me/212649811813" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.44 2.13 11.9c0 2.05.6 3.96 1.63 5.56L2 22l4.64-1.22c1.56.85 3.34 1.3 5.4 1.3 5.46 0 9.9-4.45 9.9-9.9S17.5 2 12.04 2zm0 17.86c-1.58 0-3.11-.42-4.44-1.22l-.32-.18-2.75.72.74-2.68-.2-.32A8.14 8.14 0 0 1 3.77 12c0-4.5 3.66-8.16 8.16-8.16 4.5 0 8.16 3.66 8.16 8.16 0 4.5-3.66 8.16-8.16 8.16zm4.54-6.14c-.25-.12-1.47-.72-1.7-.8-.23-.08-.39-.12-.56.12-.17.24-.65.8-.8.96-.15.16-.3.18-.55.06-.25-.12-1.05-.39-2-1.25-.74-.66-1.24-1.47-1.39-1.72-.15-.25-.02-.38.11-.5.11-.11.24-.29.36-.44.12-.15.16-.25.24-.41.08-.16.04-.3-.02-.42-.06-.12-.56-1.34-.77-1.84-.2-.49-.41-.42-.56-.42-.15 0-.32-.01-.49-.01-.17 0-.45.06-.69.3-.24.24-.91.89-.91 2.16 0 1.27.93 2.5 1.06 2.67.13.17 1.82 2.78 4.42 3.89.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.08 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.15-.47-.27z"/></svg>WhatsApp</a></li><li><a href="#zones">📍 Zones d'intervention</a></li><li><a href="#temoignages">⭐ Avis clients</a></li></ul></div>
+    <div class="f-col"><h4>Contact</h4><ul class="f-links"><li><a data-link="phone1" href="tel:+212649811813">📞 +212 649-811813</a></li><li><a data-link="phone2" href="tel:+212660027984">📞 +212 660-027984</a></li><li><a data-link="email" href="mailto:ohproclim93@gmail.com">✉️ ohproclim93@gmail.com</a></li><li><a href="https://wa.me/212649811813" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.44 2.13 11.9c0 2.05.6 3.96 1.63 5.56L2 22l4.64-1.22c1.56.85 3.34 1.3 5.4 1.3 5.46 0 9.9-4.45 9.9-9.9S17.5 2 12.04 2zm0 17.86c-1.58 0-3.11-.42-4.44-1.22l-.32-.18-2.75.72.74-2.68-.2-.32A8.14 8.14 0 0 1 3.77 12c0-4.5 3.66-8.16 8.16-8.16 4.5 0 8.16 3.66 8.16 8.16 0 4.5-3.66 8.16-8.16 8.16zm4.54-6.14c-.25-.12-1.47-.72-1.7-.8-.23-.08-.39-.12-.56.12-.17.24-.65.8-.8.96-.15.16-.3.18-.55.06-.25-.12-1.05-.39-2-1.25-.74-.66-1.24-1.47-1.39-1.72-.15-.25-.02-.38.11-.5.11-.11.24-.29.36-.44.12-.15.16-.25.24-.41.08-.16.04-.3-.02-.42-.06-.12-.56-1.34-.77-1.84-.2-.49-.41-.42-.56-.42-.15 0-.32-.01-.49-.01-.17 0-.45.06-.69.3-.24.24-.91.89-.91 2.16 0 1.27.93 2.5 1.06 2.67.13.17 1.82 2.78 4.42 3.89.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.08 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.15-.47-.27z"/></svg>WhatsApp</a></li><li><a href="#zones">📍 Zones d'intervention</a></li><li><a href="#temoignages">⭐ Avis clients</a></li></ul></div>
     <div class="f-col">
       <h4>Notre couverture</h4>
       <div class="f-map">
@@ -1148,6 +1151,9 @@ nav{background:rgba(6,13,26,0.96);position:sticky;top:0;z-index:1110}
   <div class="lb-cap" id="lbCap"></div>
 </div>
 
+<script src="config.js"></script>
+<script src="defaults.js"></script>
+<script src="store.js"></script>
 <script>
 
 const cr=document.getElementById('cr'),crr=document.getElementById('crr');
@@ -1260,31 +1266,35 @@ const DEFAULT_REAL=[
 ];
 window._realisations = DEFAULT_REAL;
 window._avisClients = [];
+window.DEFAULT_REAL = DEFAULT_REAL;
 
-function loadFromAdmin(){
-  try {
-    const r = localStorage.getItem('ohp_data_real');
-    const a = localStorage.getItem('ohp_data_avis');
-    if(r){const p=JSON.parse(r);if(Array.isArray(p)&&p.length)window._realisations=p;}
-    if(a){const p=JSON.parse(a);if(Array.isArray(p))window._avisClients=p;}
-  } catch(e) { console.log('Pas de données admin:', e); }
-}
-
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+window.esc=esc;
+window._galFilter='';
 function renderGallery(){
   const container = document.getElementById('gallery-container');
   if(!container) return;
-  const data = window._realisations || [];
+  const all = window._realisations || [];
+  const filt = document.getElementById('galFilters');
+  if(filt){
+    const villes=[...new Set(all.map(r=>(r.ville||'').trim()).filter(Boolean))];
+    if(window._galFilter && !villes.includes(window._galFilter)) window._galFilter='';
+    filt.innerHTML = villes.length>1 ? ['',...villes].map(v=>`<button type="button" class="gf${v===window._galFilter?' on':''}" data-v="${esc(v)}">${v?esc(v):'Toutes'}</button>`).join('') : '';
+    filt.querySelectorAll('.gf').forEach(b=>b.addEventListener('click',()=>{window._galFilter=b.dataset.v;renderGallery()}));
+  }
+  const data = window._galFilter ? all.filter(r=>(r.ville||'').trim()===window._galFilter) : all;
+  window._galView = data;
   if(data.length === 0){
     container.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px;color:rgba(11,31,58,0.4);font-size:16px">Aucune réalisation pour le moment.</div>';
     return;
   }
   container.innerHTML = data.map((r,i) => `
-    <div class="g-item reveal" data-idx="${i}" role="button" tabindex="0" aria-label="Voir ${r.titre} à ${r.ville}">
-      ${r.image ? `<img src="${r.image}" alt="${r.titre} à ${r.ville}" loading="lazy"/>` : '<div style="width:100%;height:100%;background:#112038;display:flex;align-items:center;justify-content:center;font-size:40px">🏗️</div>'}
+    <div class="g-item reveal" data-idx="${i}" role="button" tabindex="0" aria-label="Voir ${esc(r.titre)} à ${esc(r.ville)}">
+      ${r.image ? `<img src="${esc(r.image)}" alt="${esc(r.titre)} à ${esc(r.ville)}" loading="lazy"/>` : '<div style="width:100%;height:100%;background:#112038;display:flex;align-items:center;justify-content:center;font-size:40px">🏗️</div>'}
       <div class="g-zoom" aria-hidden="true">⤢</div>
       <div class="g-ov">
-        <div class="g-lbl">${r.titre}</div>
-        <div class="g-city">📍 ${r.ville} · ${r.service||''} · ${r.annee||''}</div>
+        <div class="g-lbl"><span>${esc(r.titre)}</span></div>
+        <div class="g-city">📍 <span>${esc(r.ville)}</span>${r.service?' · <span>'+esc(r.service)+'</span>':''}${r.annee?' · '+esc(r.annee):''}</div>
       </div>
     </div>`).join('');
   container.querySelectorAll('.reveal').forEach(el => obs.observe(el));
@@ -1297,14 +1307,14 @@ function renderGallery(){
 const lightbox=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),lbCap=document.getElementById('lbCap');
 let lbIdx=0;
 function openLightbox(i){
-  const data=window._realisations||[];if(!data[i]||!data[i].image)return;
+  const data=window._galView||window._realisations||[];if(!data[i]||!data[i].image)return;
   lbIdx=i;const r=data[i];
-  lbImg.src=r.image;lbImg.alt=r.titre+' à '+r.ville;
-  lbCap.innerHTML=`${r.titre}<small>📍 ${r.ville} · ${r.service||''} ${r.annee||''}</small>`;
+  lbImg.src=r.image;lbImg.alt=(r.titre||'')+' à '+(r.ville||'');
+  lbCap.innerHTML=`<span>${esc(r.titre)}</span><small>📍 <span>${esc(r.ville)}</span> · <span>${esc(r.service||'')}</span> ${esc(r.annee||'')}</small>`;
   lightbox.classList.add('open');lightbox.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
 }
 function closeLightbox(){lightbox.classList.remove('open');lightbox.setAttribute('aria-hidden','true');document.body.style.overflow=''}
-function navLightbox(d){const data=window._realisations||[];let n=lbIdx;do{n=(n+d+data.length)%data.length}while(!data[n].image&&n!==lbIdx);openLightbox(n)}
+function navLightbox(d){const data=window._galView||window._realisations||[];let n=lbIdx;do{n=(n+d+data.length)%data.length}while(!data[n].image&&n!==lbIdx);openLightbox(n)}
 document.getElementById('lbClose').addEventListener('click',closeLightbox);
 document.getElementById('lbPrev').addEventListener('click',e=>{e.stopPropagation();navLightbox(-1)});
 document.getElementById('lbNext').addEventListener('click',e=>{e.stopPropagation();navLightbox(1)});
@@ -1327,15 +1337,15 @@ function renderAvis(){
     container.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:50px;color:rgba(11,31,58,0.4);font-size:15px">Aucun avis pour le moment. Soyez le premier à partager votre expérience ci-dessous. 👇</div>';
     return;
   }
-  container.innerHTML = data.map(a => `
-    <div class="testi-card reveal">
-      <div class="testi-stars">${'★'.repeat(a.note||5)}${'☆'.repeat(5-(a.note||5))}</div>
-      <div class="testi-txt">« ${a.texte} »</div>
+  container.innerHTML = data.map(a => { const n=Math.min(5,Math.max(1,parseInt(a.note,10)||5)); return `
+    <div class="testi-card reveal${a.id&&a.id===window._newAvisId?' newly-added':''}">
+      <div class="testi-stars">${'★'.repeat(n)}${'☆'.repeat(5-n)}</div>
+      <div class="testi-txt">« ${esc(a.texte)} »</div>
       <div class="testi-author">
-        <div class="tav">${(a.initiales||(a.nom?a.nom[0]:'?')).toUpperCase()}</div>
-        <div><div class="tname">${a.nom}</div><div class="tcity">📍 ${a.ville}</div></div>
+        <div class="tav">${esc(((a.nom||'?').trim()[0]||'?').toUpperCase())}</div>
+        <div><div class="tname">${esc(a.nom)}</div><div class="tcity">📍 ${esc(a.ville)}</div></div>
       </div>
-    </div>`).join('');
+    </div>`}).join('');
   container.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 }
 
@@ -1348,28 +1358,40 @@ ratePick.querySelectorAll('span').forEach(s=>{
 });
 paintStars();
 
-document.getElementById('avis-form').addEventListener('submit',e=>{
+document.getElementById('avis-form').addEventListener('submit',async e=>{
   e.preventDefault();
   const f=e.target;
-  const avis={nom:f.nom.value.trim(),ville:f.ville.value.trim(),texte:f.texte.value.trim(),note:avisNote,initiales:f.nom.value.trim()[0]||'?'};
+  if(f.website && f.website.value) return; // honeypot anti-spam
+  const avis={nom:f.nom.value.trim(),ville:f.ville.value.trim(),texte:f.texte.value.trim(),note:avisNote};
   if(!avis.nom||!avis.ville||!avis.texte)return;
-  window._avisClients=[avis,...(window._avisClients||[])];
-  try{localStorage.setItem('ohp_data_avis',JSON.stringify(window._avisClients))}catch(err){}
-  renderAvis();
-  const firstReview = document.querySelector('#testi-container .testi-card');
-  if(firstReview){
-    firstReview.classList.add('newly-added');
-    firstReview.scrollIntoView({behavior:'smooth', block:'start'});
-    setTimeout(()=>firstReview.classList.remove('newly-added'),1000);
+  const ok=document.getElementById('avisOk'), btn=f.querySelector('.avis-submit');
+  try{
+    const last=+localStorage.getItem('ohp_last_avis')||0;
+    if(Date.now()-last<60000){ok.textContent='⏳ Merci de patienter une minute avant d\'envoyer un autre avis.';ok.style.display='block';setTimeout(()=>ok.style.display='none',4000);return}
+  }catch(_){}
+  btn.disabled=true;btn.textContent='Envoi…';
+  try{
+    const id=await OHP.addAvis(avis);
+    try{localStorage.setItem('ohp_last_avis',String(Date.now()))}catch(_){}
+    window._newAvisId=id;
+    setTimeout(()=>{const first=document.querySelector('#testi-container .testi-card.newly-added')||document.querySelector('#testi-container .testi-card');if(first)first.scrollIntoView({behavior:'smooth',block:'center'})},350);
+    f.reset();avisNote=5;paintStars();
+    ok.textContent='✅ Merci ! Votre avis a bien été publié.';
+  }catch(err){
+    console.error(err);ok.textContent='❌ Impossible d\'envoyer l\'avis pour le moment. Réessayez plus tard.';
   }
-  f.reset();avisNote=5;paintStars();
-  const ok=document.getElementById('avisOk');ok.style.display='block';setTimeout(()=>ok.style.display='none',4000);
+  btn.disabled=false;btn.textContent='Publier mon avis';
+  ok.style.display='block';setTimeout(()=>ok.style.display='none',5000);
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-  loadFromAdmin();
   renderGallery();
   renderAvis();
+  if(window.OHP){
+    OHP.subscribeReal(list=>{window._realisations=(list&&list.length)?list:DEFAULT_REAL;renderGallery()});
+    OHP.subscribeAvis(list=>{window._avisClients=list||[];renderAvis()});
+    OHP.subscribeSettings(s=>{window._settings=s||{};if(window.applySettings)window.applySettings(window._settings)});
+  }
 });
 
 const secs=document.querySelectorAll('section[id]');
@@ -1378,9 +1400,10 @@ const waFloat=document.getElementById('waFloat'),waTip=document.getElementById('
 const pageNav=document.querySelector('nav');
 const topbar=document.querySelector('.topbar');
 const siteSplash=document.getElementById('siteSplash');
-const WA_BASE='https://wa.me/212649811813?text=';
+let WA_BASE='https://wa.me/212649811813?text=';window.setWaBase=n=>{WA_BASE='https://wa.me/'+n+'?text='};
 const waLabels={hero:'Devis gratuit',services:'Une question ?',about:'En savoir plus',pourquoi:'Travaillons ensemble',realisations:'Projet similaire',types:'Quel type choisir ?',processus:'Démarrer un projet',certifications:'Vos garanties',zones:'Ma ville ?',faq:'Une question ?',temoignages:'Demander un devis',cta:'Devis gratuit'};
-window.addEventListener('load',()=>{if(siteSplash){setTimeout(()=>siteSplash.classList.add('hidden'),450);setTimeout(()=>siteSplash.remove(),900);}});
+let _splashDone=false;function hideSplash(){if(_splashDone||!siteSplash)return;_splashDone=true;setTimeout(()=>siteSplash.classList.add('hidden'),450);setTimeout(()=>siteSplash.remove(),900);}
+window.addEventListener('load',hideSplash);setTimeout(hideSplash,2500);
 window.addEventListener('scroll',()=>{
   let cur='';
   secs.forEach(s=>{if(window.scrollY>=s.offsetTop-130)cur=s.id});
@@ -1394,5 +1417,9 @@ window.addEventListener('scroll',()=>{
 });
 
 </script>
+<script src="site.js"></script>
+<script src="i18n.js"></script>
+<script src="lang.js"></script>
+<script src="enhance.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,37 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ⚠️ Remplacez par l'email EXACT du compte administrateur créé dans Firebase Authentication
+    // Ajoutez ici les emails admin autorisés : ['a@x.com','b@y.com']
+    function isAdmin() {
+      return request.auth != null && request.auth.token.email in ['ohproclim93@gmail.com'];
+    }
+
+    // Réalisations : lecture publique, écriture admin
+    match /realisations/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Réglages du site : lecture publique, écriture admin
+    match /settings/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Avis : tout visiteur peut en publier (contrôlé), seuls les avis non masqués sont lisibles
+    match /avis/{id} {
+      allow read: if resource.data.hidden == false || isAdmin();
+      allow create: if (
+        request.resource.data.keys().hasOnly(['nom','ville','texte','note','hidden','createdAt'])
+        && request.resource.data.nom is string && request.resource.data.nom.size() > 0 && request.resource.data.nom.size() <= 40
+        && request.resource.data.ville is string && request.resource.data.ville.size() > 0 && request.resource.data.ville.size() <= 40
+        && request.resource.data.texte is string && request.resource.data.texte.size() > 0 && request.resource.data.texte.size() <= 400
+        && request.resource.data.note is number && request.resource.data.note >= 1 && request.resource.data.note <= 5
+        && request.resource.data.hidden == false
+      ) || isAdmin();
+      allow update, delete: if isAdmin();
+    }
+  }
+}

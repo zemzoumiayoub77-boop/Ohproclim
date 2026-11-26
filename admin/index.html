@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Admin — O&H Pro Clim</title>
+<link rel="icon" type="image/jpeg" href="../logo.jpeg"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#eef3f9;--card:#fff;--ink:#0b1f3a;--muted:#5a7186;--line:#d9e2ec;--ice:#0091c2;--ice2:#00b4d8;--danger:#d93a3a;--ok:#16a34a;--warn:#f59e0b;--r:14px}
+body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;min-height:100vh}
+button{font-family:inherit;cursor:pointer}
+input,textarea,select{font-family:inherit;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--ice);outline-offset:1px;border-color:transparent}
+textarea{resize:vertical;min-height:80px}
+label{display:block;font-size:12px;font-weight:600;color:var(--muted);margin:0 0 5px}
+.hidden{display:none!important}
+
+/* login */
+#login{min-height:100vh;display:grid;place-items:center;padding:20px;background:linear-gradient(135deg,#0b1f3a,#0091c2)}
+.login-box{background:#fff;border-radius:20px;padding:34px;width:100%;max-width:400px;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.login-box img{width:64px;height:64px;border-radius:14px;margin:0 auto 14px;display:block;object-fit:cover}
+.login-box h1{font-size:22px;text-align:center;margin-bottom:4px}
+.login-box p.sub{text-align:center;color:var(--muted);font-size:14px;margin-bottom:22px}
+.login-box .f{margin-bottom:14px}
+.err{color:var(--danger);font-size:13px;margin-top:10px;min-height:18px}
+
+/* app */
+header.top{background:#0b1f3a;color:#fff;padding:12px 20px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:50}
+header.top img{width:36px;height:36px;border-radius:9px}
+header.top .t{font-weight:700;font-size:17px}
+header.top .sp{flex:1}
+header.top a,header.top button{color:#fff;background:rgba(255,255,255,.12);border:0;border-radius:9px;padding:8px 14px;font-size:13px;text-decoration:none;font-weight:500}
+header.top a:hover,header.top button:hover{background:rgba(255,255,255,.22)}
+.mode{padding:10px 20px;font-size:13px;font-weight:500}
+.mode.local{background:#fff4d6;color:#7a5200}
+.mode.remote{background:#dcfce7;color:#14532d}
+nav.tabs{display:flex;gap:6px;padding:14px 20px 0;overflow-x:auto;max-width:1100px;margin:0 auto}
+nav.tabs button{background:transparent;border:0;border-radius:10px 10px 0 0;padding:11px 18px;font-weight:600;font-size:14px;color:var(--muted);white-space:nowrap}
+nav.tabs button.on{background:var(--card);color:var(--ice);box-shadow:0 -2px 0 var(--ice) inset}
+main{max-width:1100px;margin:0 auto;padding:0 20px 80px}
+.panel{background:var(--card);border-radius:0 var(--r) var(--r) var(--r);padding:24px;box-shadow:0 6px 24px rgba(11,31,58,.06)}
+.panel h2{font-size:20px;margin-bottom:4px}
+.panel .hint{color:var(--muted);font-size:14px;margin-bottom:18px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.f{margin-bottom:14px}
+.btn{background:linear-gradient(135deg,var(--ice),var(--ice2));color:#fff;border:0;border-radius:10px;padding:10px 18px;font-weight:600;font-size:14px}
+.btn:hover{filter:brightness(1.07)}
+.btn:disabled{opacity:.55;cursor:wait}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btn.danger{background:#fff;color:var(--danger);border:1px solid #f3c4c4}
+.btn.sm{padding:6px 12px;font-size:12px}
+h3.sec{font-size:15px;margin:26px 0 12px;padding-top:18px;border-top:1px solid var(--line)}
+h3.sec:first-of-type{border:0;padding-top:0;margin-top:6px}
+
+/* réalisations */
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:16px}
+.rcard{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+.rcard .im{aspect-ratio:4/3;background:#dde7f0;position:relative}
+.rcard .im img{width:100%;height:100%;object-fit:cover;display:block}
+.rcard .num{position:absolute;top:8px;left:8px;background:rgba(11,31,58,.75);color:#fff;font-size:12px;font-weight:700;border-radius:20px;padding:2px 10px}
+.rcard .b{padding:12px;flex:1}
+.rcard .b strong{display:block;font-size:15px}
+.rcard .b span{font-size:12px;color:var(--muted)}
+.rcard .act{display:flex;gap:6px;padding:0 12px 12px;flex-wrap:wrap}
+.drop{border:2px dashed var(--line);border-radius:12px;padding:22px;text-align:center;color:var(--muted);cursor:pointer;transition:all .2s}
+.drop:hover,.drop.over{border-color:var(--ice);background:#f0f9fd;color:var(--ice)}
+.drop img{max-height:170px;border-radius:10px;margin:0 auto 8px;display:block}
+
+/* avis */
+.alist{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.aitem{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
+.aitem.off{opacity:.55;background:#f6f8fa}
+.aitem .tx{flex:1;min-width:220px}
+.aitem .st{color:#f5a623;letter-spacing:2px}
+.aitem small{color:var(--muted)}
+.badge{display:inline-block;font-size:11px;font-weight:700;border-radius:20px;padding:2px 9px;background:#fde8e8;color:var(--danger);margin-left:6px}
+
+/* listes éditables */
+.item{border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px;background:#fbfcfe}
+.item .hd{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.item .hd strong{flex:1}
+.ico-in{max-width:90px}
+
+/* toast */
+#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(30px);background:#0b1f3a;color:#fff;padding:12px 22px;border-radius:30px;font-size:14px;opacity:0;pointer-events:none;transition:all .3s;z-index:999;max-width:90vw}
+#toast.show{opacity:1;transform:translateX(-50%)}
+#toast.err{background:var(--danger)}
+.modal{position:fixed;inset:0;background:rgba(11,31,58,.55);display:grid;place-items:center;z-index:200;padding:16px;overflow-y:auto}
+.modal .box{background:#fff;border-radius:18px;padding:26px;width:100%;max-width:560px;max-height:92vh;overflow-y:auto}
+.modal h3{margin-bottom:16px;font-size:18px}
+.empty{padding:36px;text-align:center;color:var(--muted)}
+@media(max-width:700px){.grid2,.grid3{grid-template-columns:1fr}.panel{padding:16px}header.top .t{font-size:15px}}
+</style>
+</head>
+<body>
+
+<!-- ===== CONNEXION ===== -->
+<section id="login">
+  <form class="login-box" id="loginForm">
+    <img src="../logo.jpeg" alt="Logo"/>
+    <h1>Espace administrateur</h1>
+    <p class="sub">O&amp;H Pro Clim</p>
+    <div class="f"><label for="lEmail">Email</label><input id="lEmail" type="email" autocomplete="username" required/></div>
+    <div class="f"><label for="lPass">Mot de passe</label><input id="lPass" type="password" autocomplete="current-password" required/></div>
+    <button class="btn" style="width:100%;padding:13px" id="lBtn">Se connecter</button>
+    <div class="err" id="lErr"></div>
+    <p id="lLocalHint" class="hidden" style="font-size:12px;color:var(--muted);margin-top:10px">Mode démo local : tout email / mot de passe fonctionne. Configurez Firebase (voir LISEZMOI.md) pour sécuriser l'accès.</p>
+  </form>
+</section>
+
+<!-- ===== APPLICATION ===== -->
+<div id="app" class="hidden">
+  <header class="top">
+    <img src="../logo.jpeg" alt=""/>
+    <div class="t">Admin · O&amp;H Pro Clim</div>
+    <div class="sp"></div>
+    <a href="../" target="_blank" rel="noopener">Voir le site ↗</a>
+    <button id="logout">Déconnexion</button>
+  </header>
+  <div class="mode" id="modeBar"></div>
+
+  <nav class="tabs" id="tabs">
+    <button data-t="real" class="on">📸 Réalisations</button>
+    <button data-t="avis">⭐ Avis clients</button>
+    <button data-t="content">✏️ Textes & contact</button>
+    <button data-t="services">🛠️ Services</button>
+    <button data-t="faq">❓ FAQ & zones</button>
+    <button data-t="settings">⚙️ Réglages</button>
+  </nav>
+
+  <main>
+    <div class="panel" id="p-real"></div>
+    <div class="panel hidden" id="p-avis"></div>
+    <div class="panel hidden" id="p-content"></div>
+    <div class="panel hidden" id="p-services"></div>
+    <div class="panel hidden" id="p-faq"></div>
+    <div class="panel hidden" id="p-settings"></div>
+  </main>
+</div>
+
+<div id="modalRoot"></div>
+<div id="toast" role="status"></div>
+
+<script>window.OHP_NEEDS_AUTH = true;</script>
+<script src="../config.js"></script>
+<script src="../defaults.js"></script>
+<script src="../store.js"></script>
+<script>
+(function(){
+'use strict';
+var D = window.OHP_DEFAULTS;
+var $ = function(s, r){ return (r||document).querySelector(s); };
+var $$ = function(s, r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)); };
+function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+function img(p){ return /^(data:|https?:|\/)/.test(p||'') ? p : '../' + (p||''); }
+var toastT;
+function toast(msg, isErr){ var t = $('#toast'); t.textContent = msg; t.className = 'show' + (isErr?' err':''); clearTimeout(toastT); toastT = setTimeout(function(){ t.className = ''; }, 3200); }
+function fail(e){ console.error(e); var m = (e && e.code === 'permission-denied') ? "Accès refusé : vérifiez les règles Firestore et que vous êtes connecté avec le bon email." : (e && e.message) || 'Erreur'; toast(m, true); }
+function confirmBox(msg){ return window.confirm(msg); }
+
+var settings = {};
+var realList = [];
+
+/* ---------- connexion ---------- */
+if(!OHP.isRemote) $('#lLocalHint').classList.remove('hidden');
+$('#loginForm').addEventListener('submit', function(e){
+  e.preventDefault(); $('#lErr').textContent = ''; var b = $('#lBtn'); b.disabled = true; b.textContent = 'Connexion…';
+  OHP.login($('#lEmail').value.trim(), $('#lPass').value).catch(function(err){
+    var c = err && err.code || '';
+    $('#lErr').textContent = /invalid|wrong|user-not-found|credential/.test(c) ? 'Email ou mot de passe incorrect.' : (err.message || 'Erreur de connexion');
+  }).then(function(){ b.disabled = false; b.textContent = 'Se connecter'; });
+});
+$('#logout').addEventListener('click', function(){ OHP.logout().then(function(){ location.reload(); }); });
+OHP.onAuth(function(user, err){
+  if(err){ $('#lErr').textContent = 'Firebase inaccessible : ' + err.message; return; }
+  if(user){ $('#login').classList.add('hidden'); $('#app').classList.remove('hidden'); boot(); }
+  else { $('#login').classList.remove('hidden'); $('#app').classList.add('hidden'); }
+});
+
+var booted = false;
+function boot(){
+  if(booted) return; booted = true;
+  $('#modeBar').className = 'mode ' + (OHP.isRemote ? 'remote' : 'local');
+  $('#modeBar').textContent = OHP.isRemote ? '🟢 Connecté à Firebase — vos modifications sont visibles immédiatement par tous les visiteurs.' : '🟠 Mode démo local — les modifications ne sont visibles que sur CE navigateur. Configurez Firebase (LISEZMOI.md) pour publier en ligne.';
+  OHP.getSettings().then(function(s){ settings = s || {}; renderAll(); }).catch(function(e){ fail(e); settings = {}; renderAll(); });
+}
+
+/* ---------- onglets ---------- */
+$('#tabs').addEventListener('click', function(e){
+  var b = e.target.closest('button[data-t]'); if(!b) return;
+  $$('#tabs button').forEach(function(x){ x.classList.toggle('on', x === b); });
+  $$('.panel').forEach(function(p){ p.classList.add('hidden'); });
+  $('#p-' + b.dataset.t).classList.remove('hidden');
+});
+
+function renderAll(){ renderReal(); renderAvis(); renderContent(); renderServices(); renderFaq(); renderSettings(); }
+
+/* ---------- compression image ---------- */
+function compress(file, maxW){
+  return new Promise(function(res, rej){
+    if(!/^image\//.test(file.type)) return rej(new Error('Fichier non image'));
+    var fr = new FileReader();
+    fr.onerror = function(){ rej(new Error('Lecture impossible')); };
+    fr.onload = function(){
+      var im = new Image();
+      im.onerror = function(){ rej(new Error('Image illisible')); };
+      im.onload = function(){
+        var w = maxW || 1400, q = 0.82, out;
+        for(var i = 0; i < 6; i++){
+          var s = Math.min(1, w / im.width), c = document.createElement('canvas');
+          c.width = Math.round(im.width * s); c.height = Math.round(im.height * s);
+          var ctx = c.getContext('2d'); ctx.fillStyle = '#fff'; ctx.fillRect(0,0,c.width,c.height); ctx.drawImage(im, 0, 0, c.width, c.height);
+          out = c.toDataURL('image/jpeg', q);
+          if(out.length < 700000) break;
+          w = Math.round(w * 0.8); q = Math.max(.6, q - .06);
+        }
+        if(out.length >= 950000) return rej(new Error('Image trop lourde même après compression'));
+        res(out);
+      };
+      im.src = fr.result;
+    };
+    fr.readAsDataURL(file);
+  });
+}
+
+/* ================= RÉALISATIONS ================= */
+function loadReal(){ return OHP.adminListReal().then(function(l){ realList = l; renderReal(); }).catch(fail); }
+function renderReal(){
+  var p = $('#p-real');
+  var h = '<div class="row" style="justify-content:space-between"><div><h2>Réalisations</h2><p class="hint">Ajoutez, modifiez, réorganisez ou supprimez vos projets. Le premier apparaît en grand sur le site.</p></div><button class="btn" id="addReal">＋ Ajouter une réalisation</button></div>';
+  if(!realList.length){
+    h += '<div class="empty">Aucune réalisation personnalisée pour le moment.<br>Le site affiche actuellement les <b>' + D.real.length + ' réalisations par défaut</b>.<br><br><button class="btn ghost" id="seedReal">⬇ Importer les réalisations existantes pour les modifier</button></div>';
+  } else {
+    h += '<div class="rgrid">' + realList.map(function(r, i){
+      return '<div class="rcard"><div class="im">' + (r.image ? '<img src="' + esc(img(r.image)) + '" alt="" loading="lazy"/>' : '') + '<span class="num">' + (i+1) + '</span></div><div class="b"><strong>' + esc(r.titre) + '</strong><span>📍 ' + esc(r.ville) + (r.service ? ' · ' + esc(r.service) : '') + (r.annee ? ' · ' + esc(r.annee) : '') + '</span></div><div class="act"><button class="btn ghost sm" data-up="' + i + '" ' + (i===0?'disabled':'') + ' title="Monter">↑</button><button class="btn ghost sm" data-down="' + i + '" ' + (i===realList.length-1?'disabled':'') + ' title="Descendre">↓</button><button class="btn ghost sm" data-edit="' + i + '">Modifier</button><button class="btn danger sm" data-del="' + i + '">Supprimer</button></div></div>';
+    }).join('') + '</div>';
+  }
+  p.innerHTML = h;
+  $('#addReal', p).onclick = function(){ realModal(null); };
+  var seed = $('#seedReal', p);
+  if(seed) seed.onclick = function(){
+    seed.disabled = true; seed.textContent = 'Import en cours…';
+    D.real.reduce(function(pr, r, i){ return pr.then(function(){ return OHP.saveReal({titre:r.titre, ville:r.ville, service:r.service, annee:r.annee, image:r.image, order:i}); }); }, Promise.resolve()).then(function(){ toast('Réalisations importées ✔'); return loadReal(); }).catch(fail);
+  };
+  $$('[data-edit]', p).forEach(function(b){ b.onclick = function(){ realModal(realList[+b.dataset.edit]); }; });
+  $$('[data-del]', p).forEach(function(b){ b.onclick = function(){ var r = realList[+b.dataset.del]; if(confirmBox('Supprimer « ' + r.titre + ' » ?')) OHP.deleteReal(r.id).then(function(){ toast('Supprimée'); return loadReal(); }).catch(fail); }; });
+  function move(i, d){ var a = realList.slice(); var t = a[i]; a[i] = a[i+d]; a[i+d] = t; OHP.reorderReal(a.map(function(x){return x.id;})).then(loadReal).catch(fail); }
+  $$('[data-up]', p).forEach(function(b){ b.onclick = function(){ move(+b.dataset.up, -1); }; });
+  $$('[data-down]', p).forEach(function(b){ b.onclick = function(){ move(+b.dataset.down, 1); }; });
+}
+function realModal(r){
+  var edit = !!r; r = r || {titre:'', ville:'', service:'', annee: String(new Date().getFullYear()), image:''};
+  var cur = r.image || '';
+  var root = $('#modalRoot');
+  root.innerHTML = '<div class="modal"><form class="box" id="rForm"><h3>' + (edit ? 'Modifier la réalisation' : 'Nouvelle réalisation') + '</h3>' +
+    '<div class="f"><label>Photo</label><div class="drop" id="drop"><div id="prev">' + (cur ? '<img src="' + esc(img(cur)) + '" alt=""/>' : '') + '</div><div>📷 Cliquez ou glissez une photo ici<br><small>(compressée automatiquement)</small></div></div><input type="file" id="file" accept="image/*" class="hidden"/></div>' +
+    '<div class="f"><label>Titre *</label><input id="rTitre" required maxlength="80" value="' + esc(r.titre) + '" placeholder="Ex : Hôtel Marriott"/></div>' +
+    '<div class="grid2"><div class="f"><label>Ville *</label><input id="rVille" required maxlength="40" value="' + esc(r.ville) + '" placeholder="Rabat"/></div><div class="f"><label>Année</label><input id="rAnnee" maxlength="4" value="' + esc(r.annee) + '"/></div></div>' +
+    '<div class="f"><label>Type de prestation</label><input id="rService" maxlength="60" value="' + esc(r.service) + '" placeholder="Climatisation hôtelière"/></div>' +
+    '<div class="row" style="justify-content:flex-end;margin-top:8px"><button type="button" class="btn ghost" id="rCancel">Annuler</button><button class="btn" id="rSave">Enregistrer</button></div></form></div>';
+  var drop = $('#drop'), file = $('#file');
+  function pick(f){ if(!f) return; compress(f).then(function(d){ cur = d; $('#prev').innerHTML = '<img src="' + d + '" alt=""/>'; }).catch(fail); }
+  drop.onclick = function(){ file.click(); };
+  file.onchange = function(){ pick(file.files[0]); };
+  drop.ondragover = function(e){ e.preventDefault(); drop.classList.add('over'); };
+  drop.ondragleave = function(){ drop.classList.remove('over'); };
+  drop.ondrop = function(e){ e.preventDefault(); drop.classList.remove('over'); pick(e.dataTransfer.files[0]); };
+  $('#rCancel').onclick = function(){ root.innerHTML = ''; };
+  $('#rForm').onsubmit = function(e){
+    e.preventDefault();
+    if(!cur){ toast('Ajoutez une photo', true); return; }
+    var b = $('#rSave'); b.disabled = true; b.textContent = 'Enregistrement…';
+    var o = {titre:$('#rTitre').value.trim(), ville:$('#rVille').value.trim(), annee:$('#rAnnee').value.trim(), service:$('#rService').value.trim(), image:cur};
+    if(edit) o.id = r.id;
+    OHP.saveReal(o).then(function(){ root.innerHTML = ''; toast('Enregistré ✔'); return loadReal(); }).catch(function(err){ b.disabled = false; b.textContent = 'Enregistrer'; fail(err); });
+  };
+}
+
+/* ================= AVIS ================= */
+var avisList = [];
+function loadAvis(){ return OHP.adminListAvis().then(function(l){ avisList = l; renderAvis(); }).catch(fail); }
+function renderAvis(){
+  var p = $('#p-avis');
+  var h = '<div class="row" style="justify-content:space-between"><div><h2>Avis clients</h2><p class="hint">Les nouveaux avis sont publiés automatiquement. Masquez ou supprimez ceux qui sont inappropriés.</p></div><div class="row"><button class="btn ghost" id="refAvis">↻ Actualiser</button><button class="btn" id="addAvis">＋ Ajouter un avis</button></div></div>';
+  if(!avisList.length) h += '<div class="empty">Aucun avis pour l\'instant.</div>';
+  else h += '<div class="alist">' + avisList.map(function(a, i){
+    var n = Math.min(5, Math.max(1, parseInt(a.note, 10) || 5));
+    return '<div class="aitem ' + (a.hidden ? 'off' : '') + '"><div class="tx"><div class="st">' + '★'.repeat(n) + '☆'.repeat(5-n) + (a.hidden ? '<span class="badge">Masqué</span>' : '') + '</div><div style="margin:4px 0">« ' + esc(a.texte) + ' »</div><small><b>' + esc(a.nom) + '</b> · 📍 ' + esc(a.ville) + (a.createdAt ? ' · ' + new Date(a.createdAt).toLocaleDateString('fr-FR') : '') + '</small></div><div class="row"><button class="btn ghost sm" data-hide="' + i + '">' + (a.hidden ? 'Afficher' : 'Masquer') + '</button><button class="btn danger sm" data-del="' + i + '">Supprimer</button></div></div>';
+  }).join('') + '</div>';
+  p.innerHTML = h;
+  $('#refAvis', p).onclick = loadAvis;
+  $('#addAvis', p).onclick = avisModal;
+  $$('[data-hide]', p).forEach(function(b){ b.onclick = function(){ var a = avisList[+b.dataset.hide]; OHP.setAvisHidden(a.id, !a.hidden).then(function(){ toast(a.hidden ? 'Avis affiché' : 'Avis masqué'); return loadAvis(); }).catch(fail); }; });
+  $$('[data-del]', p).forEach(function(b){ b.onclick = function(){ var a = avisList[+b.dataset.del]; if(confirmBox('Supprimer définitivement l\'avis de ' + a.nom + ' ?')) OHP.deleteAvis(a.id).then(function(){ toast('Supprimé'); return loadAvis(); }).catch(fail); }; });
+}
+function avisModal(){
+  var root = $('#modalRoot'), note = 5;
+  root.innerHTML = '<div class="modal"><form class="box" id="aForm"><h3>Ajouter un avis</h3><div class="grid2"><div class="f"><label>Nom *</label><input id="aNom" required maxlength="40"/></div><div class="f"><label>Ville *</label><input id="aVille" required maxlength="40"/></div></div><div class="f"><label>Note</label><select id="aNote"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></div><div class="f"><label>Avis *</label><textarea id="aTexte" required maxlength="400"></textarea></div><div class="row" style="justify-content:flex-end"><button type="button" class="btn ghost" id="aCancel">Annuler</button><button class="btn">Publier</button></div></form></div>';
+  $('#aCancel').onclick = function(){ root.innerHTML = ''; };
+  $('#aForm').onsubmit = function(e){ e.preventDefault(); OHP.addAvisAdmin({nom:$('#aNom').value.trim(), ville:$('#aVille').value.trim(), texte:$('#aTexte').value.trim(), note:+$('#aNote').value}).then(function(){ root.innerHTML = ''; toast('Avis publié ✔'); return loadAvis(); }).catch(fail); };
+}
+
+/* ================= TEXTES & CONTACT ================= */
+var CONTENT_FIELDS = [
+  ['Page d\'accueil', [['hero_eyebrow','Phrase au-dessus du titre','text'],['hero_l1','Titre — ligne 1','text'],['hero_l2','Titre — ligne 2 (coloré)','text'],['hero_l3','Titre — ligne 3 (coloré)','text'],['hero_desc','Description','area']]],
+  ['Chiffres clés', [['stat1','Chiffre 1 (nombre)','num'],['stat1_label','Texte 1','text'],['stat2','Chiffre 2 (nombre)','num'],['stat2_label','Texte 2','text'],['stat3','Chiffre 3 (nombre)','num'],['stat3_label','Texte 3','text']]],
+  ['Textes', [['about_text','Texte « Qui sommes-nous »','area'],['cta_sub','Texte avant le bouton WhatsApp','area'],['footer_desc','Description du pied de page','area'],['topbar_zone','Zone (barre du haut)','text']]],
+  ['Contact & réseaux', [['whatsapp','Numéro WhatsApp (ex : 212649811813)','text'],['phone1','Téléphone 1 (ex : +212649811813)','text'],['phone2','Téléphone 2','text'],['email','Email','text'],['instagram','Lien Instagram','text'],['facebook','Lien Facebook','text']]]
+];
+function renderContent(){
+  var p = $('#p-content'), C = Object.assign({}, D.content, settings.content || {});
+  var h = '<h2>Textes & contact</h2><p class="hint">Modifiez les textes principaux du site. Laissez un champ vide pour revenir à la valeur d\'origine.</p>';
+  CONTENT_FIELDS.forEach(function(g){
+    h += '<h3 class="sec">' + g[0] + '</h3><div class="' + (g[1].length > 3 && g[0] !== 'Textes' ? 'grid2' : '') + '">' + g[1].map(function(f){
+      var v = esc(C[f[0]]);
+      return '<div class="f"><label>' + f[1] + '</label>' + (f[2] === 'area' ? '<textarea data-k="' + f[0] + '">' + v + '</textarea>' : '<input data-k="' + f[0] + '" ' + (f[2]==='num' ? 'inputmode="numeric"' : '') + ' value="' + v + '"/>') + '</div>';
+    }).join('') + '</div>';
+  });
+  h += '<div class="row" style="margin-top:12px"><button class="btn" id="saveContent">💾 Enregistrer</button><button class="btn ghost" id="resetContent">Rétablir les textes d\'origine</button></div>';
+  p.innerHTML = h;
+  $('#saveContent', p).onclick = function(){
+    var c = {}; $$('[data-k]', p).forEach(function(el){ var v = el.value.trim(); if(v && v !== D.content[el.dataset.k]) c[el.dataset.k] = v; });
+    save({content:c}, 'Textes enregistrés ✔');
+  };
+  $('#resetContent', p).onclick = function(){ if(confirmBox('Rétablir tous les textes d\'origine ?')) save({content:{}}, 'Textes rétablis').then(renderContent); };
+}
+
+/* ================= SERVICES ================= */
+var svc = [];
+function renderServices(){
+  var p = $('#p-services');
+  svc = (settings.services && settings.services.length) ? JSON.parse(JSON.stringify(settings.services)) : JSON.parse(JSON.stringify(D.services));
+  drawServices();
+}
+function drawServices(){
+  var p = $('#p-services');
+  p.innerHTML = '<div class="row" style="justify-content:space-between"><div><h2>Services</h2><p class="hint">Les cartes de la section « Nos Services ».</p></div><button class="btn ghost" id="addSvc">＋ Ajouter un service</button></div>' +
+  svc.map(function(s, i){
+    return '<div class="item"><div class="hd"><strong>Service ' + (i+1) + '</strong><button class="btn ghost sm" data-up="' + i + '" ' + (i===0?'disabled':'') + '>↑</button><button class="btn ghost sm" data-dn="' + i + '" ' + (i===svc.length-1?'disabled':'') + '>↓</button><button class="btn danger sm" data-rm="' + i + '">Supprimer</button></div>' +
+    '<div class="grid2"><div class="f"><label>Titre</label><input data-i="' + i + '" data-f="title" value="' + esc(s.title) + '"/></div><div class="f"><label>Icône (emoji)</label><input class="ico-in" data-i="' + i + '" data-f="icon" value="' + esc(s.icon) + '"/></div></div>' +
+    '<div class="f"><label>Description</label><textarea data-i="' + i + '" data-f="desc">' + esc(s.desc) + '</textarea></div>' +
+    '<div class="f"><label>Points clés (un par ligne)</label><textarea data-i="' + i + '" data-f="bullets">' + esc((s.bullets||[]).join('\n')) + '</textarea></div>' +
+    '<div class="f"><label>Message WhatsApp pré-rempli</label><input data-i="' + i + '" data-f="wa" value="' + esc(s.wa) + '"/></div></div>';
+  }).join('') + '<div class="row"><button class="btn" id="saveSvc">💾 Enregistrer les services</button><button class="btn ghost" id="resetSvc">Rétablir les services d\'origine</button></div>';
+  function sync(){ $$('[data-i]', p).forEach(function(el){ var s = svc[+el.dataset.i], f = el.dataset.f; s[f] = f === 'bullets' ? el.value.split('\n').map(function(x){return x.trim();}).filter(Boolean) : el.value; }); }
+  $('#addSvc', p).onclick = function(){ sync(); svc.push({icon:'✨', title:'Nouveau service', desc:'', bullets:[], wa:'Bonjour, je souhaite un devis.', cta:'💬 Demander un devis →'}); drawServices(); };
+  $$('[data-rm]', p).forEach(function(b){ b.onclick = function(){ sync(); if(confirmBox('Supprimer ce service ?')){ svc.splice(+b.dataset.rm, 1); drawServices(); } }; });
+  $$('[data-up]', p).forEach(function(b){ b.onclick = function(){ sync(); var i = +b.dataset.up, t = svc[i]; svc[i] = svc[i-1]; svc[i-1] = t; drawServices(); }; });
+  $$('[data-dn]', p).forEach(function(b){ b.onclick = function(){ sync(); var i = +b.dataset.dn, t = svc[i]; svc[i] = svc[i+1]; svc[i+1] = t; drawServices(); }; });
+  $('#saveSvc', p).onclick = function(){ sync(); save({services:svc, servicesCustom:true}, 'Services enregistrés ✔'); };
+  $('#resetSvc', p).onclick = function(){ if(confirmBox('Rétablir les services d\'origine ?')) save({services:[], servicesCustom:false}, 'Services rétablis').then(renderServices); };
+}
+
+/* ================= FAQ & ZONES ================= */
+var faq = [];
+function renderFaq(){
+  faq = (settings.faq && settings.faq.length) ? JSON.parse(JSON.stringify(settings.faq)) : JSON.parse(JSON.stringify(D.faq));
+  drawFaq();
+}
+function drawFaq(){
+  var p = $('#p-faq'), zones = (settings.zones && settings.zones.length) ? settings.zones : D.zones;
+  p.innerHTML = '<h2>FAQ & zones d\'intervention</h2><p class="hint">Questions fréquentes et villes affichées sur le site.</p><h3 class="sec">Questions / réponses</h3>' +
+  faq.map(function(f, i){
+    return '<div class="item"><div class="hd"><strong>Question ' + (i+1) + '</strong><button class="btn danger sm" data-rm="' + i + '">Supprimer</button></div><div class="f"><label>Question</label><input data-i="' + i + '" data-f="q" value="' + esc(f.q) + '"/></div><div class="f"><label>Réponse</label><textarea data-i="' + i + '" data-f="a">' + esc(f.a) + '</textarea></div></div>';
+  }).join('') + '<button class="btn ghost" id="addFaq">＋ Ajouter une question</button>' +
+  '<h3 class="sec">Villes d\'intervention</h3><div class="f"><label>Une ville par ligne</label><textarea id="zonesTa" style="min-height:160px">' + esc(zones.join('\n')) + '</textarea></div>' +
+  '<div class="row"><button class="btn" id="saveFaq">💾 Enregistrer</button><button class="btn ghost" id="resetFaq">Rétablir l\'origine</button></div>';
+  function sync(){ $$('[data-i]', p).forEach(function(el){ faq[+el.dataset.i][el.dataset.f] = el.value; }); }
+  $('#addFaq', p).onclick = function(){ sync(); faq.push({q:'', a:''}); drawFaq(); };
+  $$('[data-rm]', p).forEach(function(b){ b.onclick = function(){ sync(); faq.splice(+b.dataset.rm, 1); drawFaq(); }; });
+  $('#saveFaq', p).onclick = function(){ sync(); save({faq:faq.filter(function(f){return f.q.trim() && f.a.trim();}), zones:$('#zonesTa').value.split('\n').map(function(x){return x.trim();}).filter(Boolean)}, 'FAQ et zones enregistrées ✔'); };
+  $('#resetFaq', p).onclick = function(){ if(confirmBox('Rétablir la FAQ et les zones d\'origine ?')) save({faq:[], zones:[]}, 'Rétabli').then(renderFaq); };
+}
+
+/* ================= RÉGLAGES ================= */
+function renderSettings(){
+  var p = $('#p-settings'), a = settings.announce || {on:false, text:''}, th = settings.theme || {};
+  p.innerHTML = '<h2>Réglages</h2><p class="hint">Apparence et sauvegarde.</p>' +
+  '<h3 class="sec">Bandeau d\'annonce</h3><div class="f"><label><input type="checkbox" id="anOn" style="width:auto;margin-right:6px" ' + (a.on ? 'checked' : '') + '/> Afficher un bandeau en haut du site (promo, congés…)</label><input id="anTxt" maxlength="160" value="' + esc(a.text) + '" placeholder="Ex : -10% sur l\'entretien annuel jusqu\'au 31 décembre !"/></div>' +
+  '<h3 class="sec">Couleur principale</h3><div class="row"><input type="color" id="accent" value="' + esc(th.accent || '#0091c2') + '" style="width:70px;height:44px;padding:3px"/><button class="btn ghost sm" id="accentReset">Couleur d\'origine</button></div>' +
+  '<div class="row" style="margin-top:18px"><button class="btn" id="saveSet">💾 Enregistrer</button></div>' +
+  '<h3 class="sec">Sauvegarde</h3><p class="hint">Téléchargez une copie de vos réglages (textes, services, FAQ…). Les photos et avis ne sont pas inclus.</p><div class="row"><button class="btn ghost" id="exp">⬇ Exporter</button><button class="btn ghost" id="imp">⬆ Importer</button><input type="file" id="impF" accept="application/json" class="hidden"/></div>';
+  var accentTouched = false;
+  $('#accent', p).oninput = function(){ accentTouched = true; };
+  $('#accentReset', p).onclick = function(){ save({theme:{}}, 'Couleur rétablie').then(renderSettings); };
+  $('#saveSet', p).onclick = function(){
+    var patch = {announce:{on:$('#anOn').checked, text:$('#anTxt').value.trim()}};
+    if(accentTouched || th.accent) patch.theme = {accent:$('#accent').value};
+    save(patch, 'Réglages enregistrés ✔');
+  };
+  $('#exp', p).onclick = function(){ var blob = new Blob([JSON.stringify(settings, null, 2)], {type:'application/json'}), a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'ohproclim-reglages.json'; a.click(); setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000); };
+  $('#imp', p).onclick = function(){ $('#impF').click(); };
+  $('#impF', p).onchange = function(e){ var f = e.target.files[0]; if(!f) return; f.text().then(function(t){ var o = JSON.parse(t); if(typeof o !== 'object' || Array.isArray(o)) throw new Error('Fichier invalide'); return save(o, 'Réglages importés ✔'); }).then(renderAll).catch(fail); };
+}
+
+/* ---------- sauvegarde réglages ---------- */
+function save(patch, msg){
+  return OHP.saveSettings(patch).then(function(){
+    Object.keys(patch).forEach(function(k){ settings[k] = patch[k]; });
+    toast(msg || 'Enregistré ✔');
+  }).catch(function(e){ fail(e); throw e; });
+}
+
+/* chargement initial des listes */
+function afterBoot(){ loadReal(); loadAvis(); }
+OHP.onAuth(function(u){ if(u) setTimeout(afterBoot, 50); });
+})();
+</script>
+</body>
+</html>
