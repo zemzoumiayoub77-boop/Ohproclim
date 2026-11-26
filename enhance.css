@@ -61,3 +61,49 @@ html[dir=rtl] .mobile-menu{right:auto;left:0;transform:translateX(-100%)}
 html[dir=rtl] .mobile-menu.open{transform:none;box-shadow:20px 0 60px rgba(0,0,0,.28)}
 html[dir=rtl] .mm-close{right:auto;left:18px}
 html[dir=rtl] .htitle span{line-height:1.4}
+
+/* ===== Responsive : téléphones, tablettes, PC ===== */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;overflow-x:hidden}
+body{overflow-x:clip;min-height:100vh;min-height:100dvh}
+img,video,svg,iframe{max-width:100%}
+.wa-float{bottom:max(18px,env(safe-area-inset-bottom));right:max(18px,env(safe-area-inset-right))}
+.totop{bottom:max(18px,env(safe-area-inset-bottom));left:max(18px,env(safe-area-inset-left))}
+.wa-ring{max-width:100vw}
+
+@media(max-width:768px){
+  /* barre du haut : uniquement langue + réseaux (les contacts restent dans le menu et la section contact) */
+  .topbar{padding:8px 4%!important;gap:8px}
+  .topbar-contacts{display:none!important}
+  .topbar-right{width:100%;justify-content:space-between;align-items:center;gap:8px}
+  .topbar-right .lang-sw{margin:0}
+  .soc-btn{width:38px;height:38px}
+}
+/* cibles tactiles (Apple/Google recommandent 44px) */
+@media(hover:none),(pointer:coarse){
+  .lang-sw button{min-width:40px;height:36px;font-size:13px}
+  .srv-wa{display:inline-flex;align-items:center;min-height:44px}
+  .gf{padding:11px 18px}
+  .faq-q{min-height:48px}
+  .mobile-menu a{min-height:44px}
+  .rate-pick span{min-width:40px;min-height:40px}
+}
+/* iOS zoome automatiquement sur les champs < 16px */
+@media(max-width:768px){
+  input,textarea,select{font-size:16px!important}
+  .htitle{word-break:normal;overflow-wrap:anywhere}
+  .gal-filters{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px;margin-inline:-4%;padding-inline:4%}
+  .gf{flex:0 0 auto}
+}
+@media(max-width:360px){
+  .lang-sw button{min-width:34px;padding:0 6px}
+  .soc-btn{width:34px;height:34px}
+}
+/* avis : une seule carte reste centrée et lisible */
+.testi-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.testi-grid:has(.testi-card:only-child){max-width:520px;margin-inline:auto}
+/* grands écrans */
+@media(min-width:1700px){html{font-size:17px}}
+/* menu mobile fermé : aucune ombre ni élément visible sur le bord */
+.mobile-menu:not(.open){box-shadow:none!important;visibility:hidden}
+.mobile-menu{transition:transform .35s ease,visibility 0s linear .35s}
+.mobile-menu.open{visibility:visible;transition:transform .35s ease,visibility 0s}

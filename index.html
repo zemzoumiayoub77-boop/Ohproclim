@@ -2,7 +2,8 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="theme-color" content="#060d1a"/>
 <meta name="theme-color" content="#eef3f9"/>
 <title>O&H Pro Clim – Climatisation · Réfrigération · Ventilation au Maroc</title>
 <meta name="description" content="O&H Pro Clim – Expert en installation, maintenance et dépannage de climatisation, réfrigération et ventilation au Maroc. Devis gratuit, intervention 7j/7 sous 4h."/>
@@ -1378,7 +1379,7 @@ document.getElementById('avis-form').addEventListener('submit',async e=>{
     f.reset();avisNote=5;paintStars();
     ok.textContent='✅ Merci ! Votre avis a bien été publié.';
   }catch(err){
-    console.error(err);ok.textContent='❌ Impossible d\'envoyer l\'avis pour le moment. Réessayez plus tard.';
+    console.error('Avis non enregistré :',err);ok.textContent='❌ Impossible d\'envoyer l\'avis pour le moment. Réessayez plus tard.'+(err&&err.code?' ('+err.code+')':'');
   }
   btn.disabled=false;btn.textContent='Publier mon avis';
   ok.style.display='block';setTimeout(()=>ok.style.display='none',5000);

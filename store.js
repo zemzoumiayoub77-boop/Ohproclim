@@ -86,7 +86,7 @@
     });
     var started = {};
     function once(kind, starter){ if(started[kind]) return; started[kind] = true; api.ready.then(starter).catch(function(e){ console.error('Firebase:', e); cache[kind] = cache[kind] || (kind==='settings' ? {} : []); emit(kind); }); }
-    function rows(snap){ return snap.docs.map(function(d){ return Object.assign({id:d.id}, d.data()); }); }
+    function rows(snap){ return snap.docs.filter(function(d){ return !(d.metadata && d.metadata.hasPendingWrites); }).map(function(d){ return Object.assign({id:d.id}, d.data()); }); }
 
     api.subscribeReal = function(fn){
       once('real', function(){ F.onSnapshot(F.collection(db,'realisations'), function(snap){ cache.real = rows(snap).sort(byOrder); emit('real'); }, function(e){ console.error(e); cache.real = []; emit('real'); }); });
