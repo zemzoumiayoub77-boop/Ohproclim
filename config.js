@@ -10,7 +10,6 @@ window.OHP_FIREBASE = {
   storageBucket: "ohproclim.firebasestorage.app",
   messagingSenderId: "135465110979",
   appId: "1:135465110979:web:532c2825fd251bd3a38176",
-  // Laissez vide : détection automatique de la base ("(default)" ou "default").
-  // Si besoin, forcez-la ici, ex : databaseId: "default"
-  databaseId: ""
+  // Nom de la base Firestore (visible dans la console : "default"). Ne pas modifier.
+  databaseId: "default"
 };

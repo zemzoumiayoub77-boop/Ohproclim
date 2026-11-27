@@ -77,11 +77,18 @@
       var id = cfg.databaseId || null;
       if(!id){ try{ id = localStorage.getItem('ohp_dbid'); }catch(e){} }
       if(id){ db = openDb(id); return; }
-      db = openDb('(default)');
-      return F.getDoc(F.doc(db, 'settings', 'site')).then(function(){ try{ localStorage.setItem('ohp_dbid', '(default)'); }catch(e){} }, function(e){
-        if(e && (e.code === 'not-found' || /does not exist|NOT_FOUND/i.test(e.message || ''))){
-          db = openDb('default'); try{ localStorage.setItem('ohp_dbid', 'default'); }catch(_){}
-        }
+      function probe(dbid){
+        var d = openDb(dbid);
+        return Promise.race([
+          F.getDoc(F.doc(d, 'settings', 'site')),
+          new Promise(function(_, rej){ setTimeout(function(){ rej(new Error('timeout')); }, 7000); })
+        ]).then(function(){ return d; });
+      }
+      return probe('(default)').then(function(d){ db = d; try{ localStorage.setItem('ohp_dbid', '(default)'); }catch(e){} }, function(e1){
+        return probe('default').then(function(d){ db = d; try{ localStorage.setItem('ohp_dbid', 'default'); }catch(e){} }, function(e2){
+          console.error('Firestore inaccessible. (default):', e1 && e1.code, e1 && e1.message, '| default:', e2 && e2.code, e2 && e2.message);
+          db = openDb('(default)');
+        });
       });
     });
     var started = {};
@@ -100,8 +107,9 @@
       once('settings', function(){ F.onSnapshot(F.doc(db,'settings','site'), function(d){ cache.settings = d.exists() ? d.data() : {}; emit('settings'); }, function(e){ console.error(e); cache.settings = {}; emit('settings'); }); });
       return sub('settings', fn);
     };
+    function withTimeout(p, ms){ return Promise.race([p, new Promise(function(_, rej){ setTimeout(function(){ var e = new Error('Le serveur ne répond pas'); e.code = 'timeout'; rej(e); }, ms); })]); }
     api.addAvis = function(a){
-      return api.ready.then(function(){ return F.addDoc(F.collection(db,'avis'), {nom:a.nom, ville:a.ville, texte:a.texte, note:a.note, hidden:false, createdAt:Date.now()}); }).then(function(ref){ return ref.id; });
+      return api.ready.then(function(){ return withTimeout(F.addDoc(F.collection(db,'avis'), {nom:a.nom, ville:a.ville, texte:a.texte, note:a.note, hidden:false, createdAt:Date.now()}), 12000); }).then(function(ref){ return ref.id; });
     };
     // admin
     api.login = function(email, pass){ return api.ready.then(function(){ return A.signInWithEmailAndPassword(auth, email, pass); }).then(function(c){ api.isAdminSession = true; return c.user; }); };
